@@ -1,0 +1,71 @@
+# Fichiers et dossiers générés par Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Paramètres d'utilisateur (non nécessaires pour le projet)
+[Uu]ser[Ss]ettings/
+
+# Fichiers spécifiques aux versions Unity
+*.pidb
+*.booproj
+*.svd
+
+# Visual Studio
+.vscode/
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# Fichiers de configuration IDE JetBrains Rider
+.idea/
+*.sln.iml
+
+# Fichiers de configuration des tests unitaires
+*.coverage
+*.coveragexml
+*.nvuser
+
+# Logs Unity
+sysinfo.txt
+
+# Dossiers de compilation
+*.dSYM/
+*.apk
+*.aab
+*.symbols
+
+# Autres fichiers spécifiques aux builds
+*.swp
+*.lock
+.DS_Store
+Thumbs.db
+
+# Git ignore pour les exports
+ExportedObj/
+.consulo/
+.gradle/
+*.gradle
+output/
+.cache/
+logs/
+temp/
+node_modules/
+
+# Packages Unity
+*.unitypackage
