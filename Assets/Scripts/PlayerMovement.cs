@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
 
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private int maxHealth = 3;
     [SerializeField] private float jumpHeight = 5f;
     
     // Start is called before the first frame update
@@ -23,6 +24,13 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+
+        if (maxHealth <= 0) {
+            Die();
+        }
+        {
+            
+        }
         movement = Input.GetAxis("Horizontal");
 
         if (movement < 0f && facingRight){
@@ -68,5 +76,17 @@ public class Player : MonoBehaviour
             animator.SetBool("Jump", false);
         }
 
+    }
+
+    public void TakeDamage(int damage) {
+        if(maxHealth <= 0){
+            return; }
+
+
+        maxHealth -= damage;
+    }
+
+    void Die() {
+        Debug.Log("Player Die");
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class PatrolEnnemy : MonoBehaviour
 {
@@ -16,8 +17,12 @@ public class PatrolEnnemy : MonoBehaviour
     [SerializeField] private float chaseSpeed = 4f;
 
     public LayerMask layerMask;
-    public bool inRange = false;
     
+    public bool inRange = false;
+    public float attackRadius = 1f;
+    public Transform attackPoint;
+    public LayerMask attackLayer;
+
 
 
     private bool facingLeft = true;
@@ -39,7 +44,15 @@ public class PatrolEnnemy : MonoBehaviour
 
         if(inRange) {
 
-            if(Vector2.Distance(transform.position,player.position) > retrieveDistance) {
+            if(player.position.x > transform.position.x && facingLeft){
+                transform.eulerAngles = new Vector3(0, -180, 0);
+                facingLeft = false;
+            } else if (player.position.x < transform.position.x && !facingLeft) {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                facingLeft = true;
+
+            }
+                if(Vector2.Distance(transform.position,player.position) > retrieveDistance) {
                 animator.SetBool("Attack1", false);
                 transform.position = Vector2.MoveTowards(transform.position, player.position, chaseSpeed * Time.deltaTime);
             } else {
@@ -74,5 +87,24 @@ public class PatrolEnnemy : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        if(attackPoint == null) {
+            return; }
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+
+
+    }
+
+    public void Attack() {
+        Collider2D collInfo = Physics2D.OverlapCircle(attackPoint.position,attackRadius,attackLayer);   
+        
+        if(collInfo) {
+            if(collInfo.gameObject.GetComponent<Player>() != null) {
+                collInfo.gameObject.GetComponent<Player>().TakeDamage(1);
+
+            }
+        }
     }
 }

@@ -12404,11 +12404,6 @@ Transform:
   - {fileID: 1460436904}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1861534850 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2688915208769074360, guid: 5a17dd08d2f713143879d7c1a26c1d56, type: 3}
-  m_PrefabInstance: {fileID: 2643097599021622291}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1920960593
 GameObject:
   m_ObjectHideFlags: 0
@@ -12778,16 +12773,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 333148931}
     - target: {fileID: 1259884378411537819, guid: 5a17dd08d2f713143879d7c1a26c1d56, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1861534850}
-    - target: {fileID: 1259884378411537819, guid: 5a17dd08d2f713143879d7c1a26c1d56, type: 3}
-      propertyPath: retrieveDistance
-      value: 3
+      propertyPath: attackRadius
+      value: 2.87
       objectReference: {fileID: 0}
     - target: {fileID: 6102002201198097302, guid: 5a17dd08d2f713143879d7c1a26c1d56, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.53
+      value: 22.07
       objectReference: {fileID: 0}
     - target: {fileID: 6102002201198097302, guid: 5a17dd08d2f713143879d7c1a26c1d56, type: 3}
       propertyPath: m_LocalPosition.y
