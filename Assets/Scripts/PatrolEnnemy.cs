@@ -15,6 +15,7 @@ public class PatrolEnnemy : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private float retrieveDistance = 2.5f;
     [SerializeField] private float chaseSpeed = 4f;
+    [SerializeField] private int maxHealth = 5;
 
     public LayerMask layerMask;
     
@@ -36,6 +37,10 @@ public class PatrolEnnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(maxHealth <= 0) {
+            Die();
+        }
+
         if(Vector2.Distance(transform.position, player.position) <= attackRange){
             inRange = true;
         } else {
@@ -106,5 +111,17 @@ public class PatrolEnnemy : MonoBehaviour
 
             }
         }
+    }
+
+    public void TakeDamage(int damage) {
+        if(maxHealth <= 0) {
+            return;
+        }
+        maxHealth -= damage;
+    }
+
+    void Die() {
+        Debug.Log(this.transform.name + "Died");
+        Destroy(this.gameObject);
     }
 }
